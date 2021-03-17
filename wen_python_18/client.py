@@ -4,6 +4,10 @@ import socket
 import time
 import threading
 
+import colorama
+from colorama import Fore, Style
+colorama.init()
+
 
 def receving (name, sock, switch):
 	while not switch:
@@ -27,7 +31,7 @@ host = socket.gethostbyname(socket.gethostname())
 port = 0
 
 # сервера ip, порт
-server = ('192.168.31.17', 11719)
+server = ('192.168.31.102', 11719)
 
 # сокет
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -35,6 +39,7 @@ s.bind((host, port))
 s.setblocking(0)
 
 name = input('name > ')
+name = Fore.GREEN+ name+ Fore.CYAN
 # отправляет сообщение
 s.sendto(("["+name+"] => join chat ").encode("utf-8"), server)
 time.sleep(0.2)
@@ -46,7 +51,10 @@ rT.start()
 # запускает отправку сообщений
 while shutdown == False:
 	try:
-		message = input("["+name+"] > ")
+		print(Fore.CYAN+"["+name+"] > ", end='')
+		message = input()
+		print(Fore.RESET, end='')
+		message = Fore.CYAN+message+Fore.RESET
 		s.sendto(("["+name+"] > " + message).encode("utf-8"), server)
 		time.sleep(0.2)
 	except:
