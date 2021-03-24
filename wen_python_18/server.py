@@ -8,7 +8,7 @@ colorama.init()
 clients = []
 
 s = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
-s.bind(("192.168.31.102", 11719))                        # для общаги 192.168.1.132, 11719
+s.bind(("192.168.31.17", 11719))                        # для общаги 192.168.1.132, 11719
 
 quit = False
 print("[Server Started]")

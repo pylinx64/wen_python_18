@@ -31,7 +31,7 @@ host = socket.gethostbyname(socket.gethostname())
 port = 0
 
 # сервера ip, порт
-server = ('192.168.31.102', 11719)
+server = ('192.168.31.17', 11719)
 
 # сокет
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
